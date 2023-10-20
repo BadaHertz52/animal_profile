@@ -1,0 +1,26 @@
+.item {
+  position: relative;
+  margin-bottom: 16px;
+  font-size: 18px;
+  label {
+    display: inline-block;
+    width: 80px;
+  }
+  span {
+    margin-right: 5px;
+  }
+  input {
+    background-color: transparent;
+    width: calc(100% - 85px - 16px - 14px);
+    padding-left: 12px;
+    border: 1px solid rgb(209, 209, 209);
+    font-size: inherit;
+    font-family: inherit;
+    &::placeholder {
+      font-size: 16px;
+    }
+    &:disabled {
+      border: none;
+    }
+  }
+}

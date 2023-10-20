@@ -1,0 +1,28 @@
+$itemMargin: 14px;
+.profile {
+  margin-bottom: 16px;
+  width: 320px;
+  font-weight: 300;
+  h2 {
+    text-align: center;
+    margin-bottom: $itemMargin;
+    font : {
+      size: 24px;
+      weight: 400;
+    }
+  }
+}
+
+.btnGroup {
+  margin-bottom: $itemMargin;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profileContents {
+  border: 1px solid rgb(154, 154, 154);
+  border-radius: 20px;
+  padding: 24px 20px;
+  padding-bottom: 12px;
+}

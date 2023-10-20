@@ -8,7 +8,11 @@ type AnimalTypeBtnProps = {
 function AnimalTypeBtn({ type }: AnimalTypeBtnProps) {
   const animalIcon = type === "dog" ? "🐶" : type === "cat" ? "🐱" : "🐼";
 
-  return <button>{animalIcon}</button>;
+  return (
+    <button className={styles.btn} title={type}>
+      {animalIcon}
+    </button>
+  );
 }
 
 export default AnimalTypeBtn;

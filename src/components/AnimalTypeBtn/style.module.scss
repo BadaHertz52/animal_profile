@@ -1,0 +1,16 @@
+.btn {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  text-align: center;
+  &:hover {
+    background-color: rgb(236, 236, 236);
+  }
+}
+
+.btn.selected {
+  border: 1px solid black;
+}
