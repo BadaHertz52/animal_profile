@@ -13,7 +13,7 @@ function Board() {
       case "cat":
         return "☀️🐈🍞(식빵 굽기 장인) ";
       case "panda":
-        return "🐼🍃(토끼귀=기분이 좋다는 뜻)";
+        return "🐼🍃(토끼귀=기분이 좋다)";
       default:
         break;
     }
@@ -23,7 +23,7 @@ function Board() {
     get: ({ get }) => {
       const profile = get(currentAnimalProfile);
       let array = [];
-      const nameSentence = "안녕! 나는" + profile.name + "야.";
+      const nameSentence = "안녕! 나는 " + profile.name + "야.";
       const typeSentence = getTypeSentence(profile.type);
       const likeSentence = profile.like + " 좋아!!😍";
       const hateSentence = profile.hate + "... 그건 좀..";
