@@ -1,7 +1,8 @@
+$background: #f2f2f2f2;
 .btn {
   margin-left: 10px;
-  background: #f2f2f2;
-  background-color: #f2f2f2;
+  background: $background;
+  background-color: $background;
   border: none;
   border-radius: 29px;
   display: inline-block;
@@ -11,7 +12,7 @@
   padding: 5px 12px;
   text-decoration: none;
   &:hover {
-    background: linear-gradient(to top, #cccccc 20%, #f2f2f2 100%);
+    background: linear-gradient(to top, #cccccc 20%, $background 100%);
     background-color: #d9d6d9;
   }
   &:active {
@@ -19,6 +20,11 @@
     top: 1px;
   }
   &:disabled {
-    cursor: not-allowed;
+    opacity: 0.5;
+    cursor: initial;
+    &:hover {
+      background: $background;
+      background-color: $background;
+    }
   }
 }
