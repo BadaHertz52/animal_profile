@@ -4,10 +4,16 @@ type BtnProps = {
   children: ReactNode;
   onClick: () => void;
   title?: string;
+  disable?: boolean;
 };
 function Btn(props: BtnProps) {
   return (
-    <button className={styles.btn} title={props.title} onClick={props.onClick}>
+    <button
+      className={styles.btn}
+      title={props.title}
+      disabled={props.disable}
+      onClick={props.onClick}
+    >
       {props.children}
     </button>
   );

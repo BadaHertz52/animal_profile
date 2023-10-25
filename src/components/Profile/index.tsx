@@ -9,7 +9,11 @@ import styles from "./style.module.scss";
 import Btn from "../Btn";
 import ProfileItem, { ProfileItemProps } from "../ProfileItem";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { currentAnimalProfile, previousAnimalProfile } from "../../data/state";
+import {
+  currentAnimalProfile,
+  initialProfile,
+  previousAnimalProfile,
+} from "../../data/state";
 import { AnimalProfile } from "../../type";
 import Revert from "../Revert";
 function Profile() {
@@ -65,7 +69,8 @@ function Profile() {
 
   useEffect(() => {
     setEdit(false);
-  }, [currentProfile.type]);
+    setPrevProfile(initialProfile);
+  }, [currentProfile.type, setPrevProfile]);
   return (
     <div className={styles.profile}>
       <h2 className="bubble"> 안녕 나는 {type}야</h2>
