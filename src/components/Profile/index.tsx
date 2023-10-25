@@ -13,7 +13,7 @@ function Profile() {
       : profile.type === "dog"
       ? "강아지"
       : "판다";
-  const profileItemArray: Omit<ProfileItemProps, "disable">[] = [
+  const profileItemArray: Omit<ProfileItemProps, "edit">[] = [
     { id: "name", label: "이름", content: profile.name },
     { id: "like", label: "좋아하는 것", content: profile.like },
     { id: "hate", label: "싫어하는 것", content: profile.hate },
@@ -45,7 +45,7 @@ function Profile() {
             id={i.id}
             label={i.label}
             content={i.content}
-            disable={!edit}
+            edit={edit}
           />
         ))}
       </div>

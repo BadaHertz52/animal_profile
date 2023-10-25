@@ -5,12 +5,11 @@ export type ProfileItemProps = {
   id: ProfileItemType;
   label: string;
   content: string | undefined;
-  disable: boolean;
+  edit: boolean;
 };
 function ProfileItem(props: ProfileItemProps) {
-  const [value, setValue] = useState<string | undefined>(
-    props.content || "???"
-  );
+  const text = props.content || "???";
+  const [value, setValue] = useState<string | undefined>(text);
   const changeEscapeChars = useCallback((str: string) => {
     switch (str) {
       case "&":
@@ -42,13 +41,19 @@ function ProfileItem(props: ProfileItemProps) {
     <div className={styles.item}>
       <label htmlFor={props.id}>{props.label}</label>
       <span>:</span>
-      <input
-        id={props.id}
-        value={value}
-        placeholder={props.disable ? undefined : "6자 이하로 입력해주세요."}
-        onChange={handleChange}
-        disabled={props.disable}
-      />
+      {props.edit ? (
+        <input
+          id={props.id}
+          className={styles.content}
+          value={value}
+          placeholder="6자 이하로 입력해주세요."
+          onChange={handleChange}
+        />
+      ) : (
+        <span id={props.id} className={styles.content}>
+          {text}
+        </span>
+      )}
     </div>
   );
 }

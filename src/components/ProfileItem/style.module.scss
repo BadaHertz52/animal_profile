@@ -2,25 +2,30 @@
   position: relative;
   margin-bottom: 16px;
   font-size: 18px;
+  height: 27px;
+  line-height: 27px;
   label {
     display: inline-block;
     width: 80px;
+    height: inherit;
   }
   span {
     margin-right: 5px;
   }
   input {
     background-color: transparent;
-    width: calc(100% - 85px - 16px - 14px);
-    padding-left: 12px;
+
     border: 1px solid rgb(209, 209, 209);
-    font-size: inherit;
-    font-family: inherit;
     &::placeholder {
       font-size: 16px;
     }
-    &:disabled {
-      border: none;
-    }
   }
+}
+
+.content {
+  width: calc(100% - 85px - 16px - 14px);
+  height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  padding-left: 12px;
 }
