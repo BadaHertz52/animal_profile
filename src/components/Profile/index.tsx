@@ -5,9 +5,11 @@ import ProfileItem, { ProfileItemProps } from "../ProfileItem";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { currentAnimalProfile, previousAnimalProfile } from "../../data/state";
 import { AnimalProfile } from "../../type";
+import Revert from "../Revert";
 function Profile() {
   const [currentProfile, setCurrentProfile] =
     useRecoilState(currentAnimalProfile);
+  const setPrevProfile = useSetRecoilState(previousAnimalProfile);
   const [edit, setEdit] = useState<boolean>(false);
   const type =
     currentProfile.type === "cat"
@@ -47,12 +49,14 @@ function Profile() {
       });
     }
     setPrevProfile(currentProfile);
+    setCurrentProfile(newProfile);
+  }, [currentProfile, setCurrentProfile, setPrevProfile]);
+
   const saveEdit = useCallback(() => {
     updateCurrentProfile();
     setEdit(false);
   }, [updateCurrentProfile, setEdit]);
 
-  const revertPrevious = () => {};
   return (
     <div className={styles.profile}>
       <h2> 안녕 나는 {type}야</h2>
@@ -65,9 +69,7 @@ function Profile() {
         ) : (
           <>
             <Btn onClick={() => setEdit(true)}>편집</Btn>
-            <Btn title="이전 프로필로 되돌리기" onClick={revertPrevious}>
-              🔃
-            </Btn>
+            <Revert />
           </>
         )}
       </div>
