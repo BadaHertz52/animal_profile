@@ -42,6 +42,7 @@ function Profile() {
       <div className={styles.profileContents}>
         {profileItemArray.map((i) => (
           <ProfileItem
+            key={i.id}
             id={i.id}
             label={i.label}
             content={i.content}
