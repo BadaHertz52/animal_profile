@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { ProfileItemType } from "../../type";
 import styles from "./style.module.scss";
 export type ProfileItemProps = {
@@ -9,7 +9,7 @@ export type ProfileItemProps = {
 };
 function ProfileItem(props: ProfileItemProps) {
   const text = props.content || "???";
-  const [value, setValue] = useState<string | undefined>(text);
+  const [value, setValue] = useState<string | undefined>();
   const changeEscapeChars = useCallback((str: string) => {
     switch (str) {
       case "&":
@@ -29,14 +29,16 @@ function ProfileItem(props: ProfileItemProps) {
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       //XSS 공격 방어
-      const text = event.target.value.replaceAll(/[&<>"']/g, (t) =>
-        changeEscapeChars(t)
-      );
-      // 6자 이하로
+      const text = event.target.value
+        .replaceAll(/[&<>"']/g, (t) => changeEscapeChars(t))
+        .slice(0, 10);
       setValue(text);
     },
     [changeEscapeChars]
   );
+  useEffect(() => {
+    setValue(undefined);
+  }, [props.edit]);
   return (
     <div className={styles.item}>
       <label htmlFor={props.id}>{props.label}</label>
@@ -46,7 +48,7 @@ function ProfileItem(props: ProfileItemProps) {
           id={props.id}
           className={styles.content}
           value={value}
-          placeholder="6자 이하로 입력해주세요."
+          placeholder="10자 이하로 입력해주세요."
           onChange={handleChange}
         />
       ) : (
