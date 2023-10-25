@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import styles from "./style.module.scss";
 import { AnimalType } from "../../type";
-import { animalProfile, initialProfile } from "../../data/state";
+import { currentAnimalProfile, initialProfile } from "../../data/state";
 import { useSetRecoilState } from "recoil";
 
 type AnimalTypeBtnProps = {
@@ -9,7 +9,7 @@ type AnimalTypeBtnProps = {
 };
 function AnimalTypeBtn({ type }: AnimalTypeBtnProps) {
   const animalIcon = type === "dog" ? "🐶" : type === "cat" ? "🐱" : "🐼";
-  const setAnimalProfileState = useSetRecoilState(animalProfile);
+  const setAnimalProfileState = useSetRecoilState(currentAnimalProfile);
   const handleClick = useCallback(() => {
     setAnimalProfileState((prev) =>
       prev.type === type ? prev : { ...initialProfile, type: type }

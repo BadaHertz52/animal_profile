@@ -7,7 +7,12 @@ export const initialProfile: AnimalProfile = {
   like: undefined,
   hate: undefined,
 };
-export const animalProfile = atom({
-  key: "animal",
+export const currentAnimalProfile = atom({
+  key: "currentAnimalProfile",
+  default: initialProfile,
+});
+
+export const previousAnimalProfile = atom({
+  key: "previousAnimalProfile",
   default: initialProfile,
 });
