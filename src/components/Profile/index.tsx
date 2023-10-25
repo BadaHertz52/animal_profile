@@ -1,4 +1,10 @@
-import React, { useState, useRef, useCallback, useMemo } from "react";
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+  useEffect,
+} from "react";
 import styles from "./style.module.scss";
 import Btn from "../Btn";
 import ProfileItem, { ProfileItemProps } from "../ProfileItem";
@@ -57,6 +63,9 @@ function Profile() {
     setEdit(false);
   }, [updateCurrentProfile, setEdit]);
 
+  useEffect(() => {
+    setEdit(false);
+  }, [currentProfile.type]);
   return (
     <div className={styles.profile}>
       <h2 className="bubble"> 안녕 나는 {type}야</h2>
