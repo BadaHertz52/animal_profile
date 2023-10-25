@@ -29,10 +29,7 @@ function Profile() {
   const updateCurrentProfile = useCallback(() => {
     const inputElArray = profileContentRef.current?.querySelectorAll("input");
     let newProfile: AnimalProfile = {
-      type: currentProfile.type,
-      name: undefined,
-      like: undefined,
-      hate: undefined,
+      ...currentProfile,
     };
     if (inputElArray) {
       inputElArray.forEach((e) => {
