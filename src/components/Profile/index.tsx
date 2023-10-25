@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import styles from "./style.module.scss";
 import Btn from "../Btn";
 import ProfileItem, { ProfileItemProps } from "../ProfileItem";
 import { useRecoilState } from "recoil";
 import { animalProfile } from "../../data/state";
+import { AnimalProfile } from "../../type";
 function Profile() {
   const [profile, setProfile] = useRecoilState(animalProfile);
   const [edit, setEdit] = useState<boolean>(false);
@@ -18,7 +19,38 @@ function Profile() {
     { id: "like", label: "좋아하는 것", content: profile.like },
     { id: "hate", label: "싫어하는 것", content: profile.hate },
   ];
-  const saveEdit = () => {};
+  const profileContentRef = useRef<HTMLDivElement>(null);
+  const updateProfile = useCallback(() => {
+    const inputElArray = profileContentRef.current?.querySelectorAll("input");
+    let newProfile: AnimalProfile = {
+      type: profile.type,
+      name: undefined,
+      like: undefined,
+      hate: undefined,
+    };
+    if (inputElArray) {
+      inputElArray.forEach((e) => {
+        switch (e.id) {
+          case "name":
+            newProfile.name = e.value || undefined;
+            break;
+          case "like":
+            newProfile.like = e.value || undefined;
+            break;
+          case "hate":
+            newProfile.hate = e.value || undefined;
+            break;
+          default:
+            break;
+        }
+      });
+    }
+    setProfile(newProfile);
+  }, [profile.type, setProfile]);
+  const saveEdit = useCallback(() => {
+    updateProfile();
+    setEdit(false);
+  }, [updateProfile, setEdit]);
 
   const revertPrevious = () => {};
   return (
@@ -39,7 +71,7 @@ function Profile() {
           </>
         )}
       </div>
-      <div className={styles.profileContents}>
+      <div className={styles.profileContents} ref={profileContentRef}>
         {profileItemArray.map((i) => (
           <ProfileItem
             key={i.id}
@@ -54,4 +86,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default React.memo(Profile);
