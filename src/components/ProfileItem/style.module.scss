@@ -14,7 +14,6 @@
   }
   input {
     background-color: transparent;
-
     border: 1px solid rgb(209, 209, 209);
     &::placeholder {
       font-size: 16px;
@@ -23,6 +22,7 @@
 }
 
 .content {
+  display: inline-block;
   width: calc(100% - 85px - 16px - 14px);
   height: inherit;
   font-size: inherit;
