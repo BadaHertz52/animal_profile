@@ -48,7 +48,7 @@ function ProfileItem(props: ProfileItemProps) {
           id={props.id}
           className={styles.content}
           value={value}
-          placeholder="10자 이하로 입력해주세요."
+          placeholder="10자 이하 입력"
           onChange={handleChange}
         />
       ) : (

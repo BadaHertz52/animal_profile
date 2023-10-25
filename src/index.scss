@@ -1,13 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Playpen+Sans&display=swap");
 
+.bubble {
+  font-family: "Gamja Flower", "Playpen Sans", sans-serif;
+}
+
 .App {
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
-  margin-top: 32px;
-  font-family: "Gamja Flower", "Playpen Sans", sans-serif, cursive;
+  padding-top: 32px;
+  box-sizing: border-box;
+
   button {
     font-family: inherit;
   }

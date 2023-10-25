@@ -59,7 +59,7 @@ function Profile() {
 
   return (
     <div className={styles.profile}>
-      <h2> 안녕 나는 {type}야</h2>
+      <h2 className="bubble"> 안녕 나는 {type}야</h2>
       <div className={styles.btnGroup}>
         {edit ? (
           <>

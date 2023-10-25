@@ -1,12 +1,12 @@
 .item {
   position: relative;
-  margin-bottom: 16px;
-  font-size: 18px;
+  margin-bottom: 14px;
+  font-size: 15px;
   height: 27px;
   line-height: 27px;
   label {
     display: inline-block;
-    width: 80px;
+    width: 85px;
     height: inherit;
   }
   span {
@@ -17,15 +17,15 @@
     border: 1px solid rgb(209, 209, 209);
     &::placeholder {
       font-size: 16px;
+      text-align: center;
     }
   }
 }
 
 .content {
   display: inline-block;
-  width: calc(100% - 85px - 16px - 14px);
+  width: calc(100% - 90px - 16px - 14px);
   height: inherit;
   font-size: inherit;
   font-family: inherit;
-  padding-left: 12px;
 }
