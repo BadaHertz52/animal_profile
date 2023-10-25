@@ -9,6 +9,7 @@ export type ProfileItemProps = {
 };
 function ProfileItem(props: ProfileItemProps) {
   const text = props.content || "???";
+
   const [value, setValue] = useState<string | undefined>(props.content);
   const changeEscapeChars = useCallback((str: string) => {
     switch (str) {
@@ -39,8 +40,10 @@ function ProfileItem(props: ProfileItemProps) {
   useEffect(() => {
     if (!props.edit) {
       setValue(undefined);
+    } else {
+      setValue(props.content);
     }
-  }, [props.edit]);
+  }, [props.edit, props.content]);
   return (
     <div className={styles.item}>
       <label htmlFor={props.id}>{props.label}</label>
@@ -50,7 +53,7 @@ function ProfileItem(props: ProfileItemProps) {
           id={props.id}
           className={styles.content}
           value={value || ""}
-          placeholder={props.content || "10자 이하 입력"}
+          placeholder={"10자 이하 입력"}
           onChange={handleChange}
         />
       ) : (
