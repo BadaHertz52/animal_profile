@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/anmial_profile/static/css/main.39580489.css",
+    "main.js": "/anmial_profile/static/js/main.7517a7a5.js",
+    "static/js/787.9031419e.chunk.js": "/anmial_profile/static/js/787.9031419e.chunk.js",
+    "index.html": "/anmial_profile/index.html",
+    "main.39580489.css.map": "/anmial_profile/static/css/main.39580489.css.map",
+    "main.7517a7a5.js.map": "/anmial_profile/static/js/main.7517a7a5.js.map",
+    "787.9031419e.chunk.js.map": "/anmial_profile/static/js/787.9031419e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39580489.css",
+    "static/js/main.7517a7a5.js"
+  ]
+}
