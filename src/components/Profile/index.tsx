@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useMemo } from "react";
 import styles from "./style.module.scss";
 import Btn from "../Btn";
 import ProfileItem, { ProfileItemProps } from "../ProfileItem";
@@ -17,11 +17,14 @@ function Profile() {
       : currentProfile.type === "dog"
       ? "강아지"
       : "판다";
-  const profileItemArray: Omit<ProfileItemProps, "edit">[] = [
-    { id: "name", label: "이름", content: currentProfile.name },
-    { id: "like", label: "좋아하는 것", content: currentProfile.like },
-    { id: "hate", label: "싫어하는 것", content: currentProfile.hate },
-  ];
+  const profileItemArray: Omit<ProfileItemProps, "edit">[] = useMemo(
+    () => [
+      { id: "name", label: "이름", content: currentProfile.name },
+      { id: "like", label: "좋아하는 것", content: currentProfile.like },
+      { id: "hate", label: "싫어하는 것", content: currentProfile.hate },
+    ],
+    [currentProfile]
+  );
   const profileContentRef = useRef<HTMLDivElement>(null);
   const updateCurrentProfile = useCallback(() => {
     const inputElArray = profileContentRef.current?.querySelectorAll("input");
