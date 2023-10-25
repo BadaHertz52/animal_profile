@@ -2,6 +2,8 @@ import React, { useCallback, Dispatch, SetStateAction } from "react";
 import styles from "./style.module.scss";
 import { AnimalType } from "../../type";
 import { sessionKey } from "../../data/key";
+import { useRecoilValue } from "recoil";
+import { currentAnimalProfile } from "../../data/state";
 
 type AnimalTypeBtnProps = {
   type: AnimalType;
@@ -9,14 +11,19 @@ type AnimalTypeBtnProps = {
 };
 function AnimalTypeBtn({ type, setOpenModal }: AnimalTypeBtnProps) {
   const animalIcon = type === "dog" ? "🐶" : type === "cat" ? "🐱" : "🐼";
-
+  const currentProfile = useRecoilValue(currentAnimalProfile);
+  const disabled = currentProfile.type === type;
   const handleClick = () => {
-    console.log("click");
     setOpenModal(true);
     sessionStorage.setItem(sessionKey.type, type);
   };
   return (
-    <button className={styles.btn} title={type} onClick={handleClick}>
+    <button
+      className={styles.btn}
+      disabled={disabled}
+      title={type}
+      onClick={handleClick}
+    >
       {animalIcon}
     </button>
   );
