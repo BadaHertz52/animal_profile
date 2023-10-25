@@ -36,9 +36,11 @@ function ProfileItem(props: ProfileItemProps) {
     },
     [changeEscapeChars]
   );
-  // useEffect(() => {
-  //   setValue(undefined);
-  // }, [props.edit]);
+  useEffect(() => {
+    if (!props.edit) {
+      setValue(undefined);
+    }
+  }, [props.edit]);
   return (
     <div className={styles.item}>
       <label htmlFor={props.id}>{props.label}</label>
@@ -47,7 +49,7 @@ function ProfileItem(props: ProfileItemProps) {
         <input
           id={props.id}
           className={styles.content}
-          value={value}
+          value={value || ""}
           placeholder={props.content || "10자 이하 입력"}
           onChange={handleChange}
         />
