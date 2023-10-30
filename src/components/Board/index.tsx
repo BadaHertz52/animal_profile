@@ -44,7 +44,7 @@ function Board() {
   useEffect(() => {
     let intervalSentence: undefined | NodeJS.Timer;
     if (sentenceArray.length > 1) {
-      intervalSentence = setInterval(showRandomSentence, 2000);
+      intervalSentence = setInterval(showRandomSentence, 1000);
     } else {
       setSentence(sentenceArray[0]);
     }
