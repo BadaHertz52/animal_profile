@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { AnimalTypeBtn, Board, Profile, ProfileImg } from "./components";
 import { AnimalType } from "./type";
 import ConfirmModal from "./components/Modal/ConfirmModal";
+import ProfileImgContainer from "./components/ProfileImgContainer";
+import Loading from "./components/Loading";
 function App() {
   const animals: AnimalType[] = ["cat", "dog", "panda"];
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -17,7 +19,11 @@ function App() {
         ))}
       </div>
       {openModal && <ConfirmModal setOpenModal={setOpenModal} />}
-      <ProfileImg />
+      <ProfileImgContainer>
+        <Suspense fallback={<Loading />}>
+          <ProfileImg />
+        </Suspense>
+      </ProfileImgContainer>
       <Profile />
       <Board />
     </div>

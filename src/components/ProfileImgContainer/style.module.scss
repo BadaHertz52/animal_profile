@@ -1,0 +1,12 @@
+.container {
+  width: 320px;
+  height: 225px;
+  border-radius: 20px;
+  margin: 16px 0;
+  & > img,
+  & > div {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  }
+}
