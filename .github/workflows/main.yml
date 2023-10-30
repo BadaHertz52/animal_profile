@@ -1,0 +1,17 @@
+name: react-api-key
+on: [push]
+jobs:
+ build: 
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v3
+   - uses: actions/setup-node@v3
+     with:
+       node-version: '16'
+   - name: Setting .env
+			run: |
+        echo "REACT_APP_PIXABAY =$REACT_APP_PIXABAY" >> .env
+        cat .env
+        
+     env:  
+      REACT_APP_PIXABAY: ${{secrets.REACT_APP_PIXABAY}}
