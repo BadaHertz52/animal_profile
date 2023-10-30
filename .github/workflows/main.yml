@@ -1,4 +1,4 @@
-name:env
+name: Setting env
 
 on: [push]
 
