@@ -28,8 +28,6 @@ npm run start
 
 ## 공부
 
-Recoil 공식 문서와 프로젝트를 진행하면서 배운 것들은 [wiki](https://github.com/BadaHertz52/animal_profile/wiki)에 있습니다.
-
 Recoil을 공부하면서 이전에 사용해봤던 상태 관리 라이브러리인 Redux와 비교했을때 흥미로웠던 부분을 다음과 같습니다.
 
 - 보다 코드가 깔끔하다.
