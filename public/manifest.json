@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Animal Profile",
+  "name": "Create Animal Profile Project with React and Recoil",
   "icons": [
     {
       "src": "favicon.ico",
